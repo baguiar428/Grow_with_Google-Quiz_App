@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+
+    <!--Strings for questions go here-->
+    <string name="nameField">Hello, Please input your name.</string>
+    <string name="question1">1. LDL is commonly referred to as the \"good\" cholestorol.</string>
+    <string name="question2">2. HDL is commonly referred to as the \"good\" cholestorol.</string>
+    <string name="question3">3. Which 2 of the following are effective ways to lose weight?</string>
+    <string name="question4">4. Which 2 of the following will promote muscle growth after a strength training session?</string>
+    <string name="question5">5. What kind of exercise would you do if you want to strengthen your heart?</string>
+    <string name="question6">6. Which is more important for achieving success in your training program?</string>
+
+    <!--Strings for answers go here-->
+    <string name="trueButton">True</string>
+    <string name="falseButton">False</string>
+    <string name="ques3answerA">Fad diets</string>
+    <string name="ques3answerB">Calorie deficit</string>
+    <string name="ques3answerC">Body wraps</string>
+    <string name="ques3answerD">Consistent exercise</string>
+    <string name="ques4answerA">Rest</string>
+    <string name="ques4answerB">Gatorade</string>
+    <string name="ques4answerC">Sugar</string>
+    <string name="ques4answerD">Protein</string>
+    <string name="ques5hint">A.) Cardiovascular or B.) Strength</string>
+    <string name="ques6hint">A.) Supplements or B.) Consistency</string>
+    <string name="submit">Submit</string>
+
+</resources>
