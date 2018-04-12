@@ -1,21 +1,50 @@
 package com.example.android.quizapp;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     int score = 0;
+    private EditText nameField;
+    private RadioGroup ldlRadioGroup;
+    private RadioGroup hdlRadioGroup;
+    private CheckBox fadDietsCheckBox;
+    private CheckBox calorieDeficitCheckBox;
+    private CheckBox bodyWrapsCheckBox;
+    private CheckBox exerciseCheckBox;
+    private CheckBox restCheckBox;
+    private CheckBox gatoradeCheckBox;
+    private CheckBox sugarCheckBox;
+    private CheckBox proteinCheckBox;
+    private EditText answerField5;
+    private EditText answerField6;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        nameField = findViewById(R.id.name_field);
+        ldlRadioGroup = findViewById(R.id.ldl_radiogroup);
+        hdlRadioGroup = findViewById(R.id.hdl_radiogroup);
+        fadDietsCheckBox = findViewById(R.id.fad_diets_checkbox);
+        calorieDeficitCheckBox = findViewById(R.id.calorie_deficit_checkbox);
+        bodyWrapsCheckBox = findViewById(R.id.body_wraps_checkbox);
+        exerciseCheckBox = findViewById(R.id.exercise_checkbox);
+        restCheckBox = findViewById(R.id.rest_checkbox);
+        gatoradeCheckBox = findViewById(R.id.gatorade_checkbox);
+        sugarCheckBox = findViewById(R.id.sugar_checkbox);
+        proteinCheckBox = findViewById(R.id.protein_checkbox);
+        answerField5 = findViewById(R.id.ques_5_answer);
+        answerField6 = findViewById(R.id.ques_6_answer);
     }
 
 
@@ -25,49 +54,38 @@ public class MainActivity extends AppCompatActivity {
      */
     public void submitQuiz(View view) {
 
-        EditText nameField = findViewById(R.id.name_field);
         String nameText = nameField.getText().toString();
 
         int question1Score = checkQuestion1();
 
         int question2Score = checkQuestion2();
 
-        CheckBox fadDietsCheckBox = findViewById(R.id.fad_diets_checkbox);
         boolean hasFadDiets = fadDietsCheckBox.isChecked();
 
-        CheckBox calorieDeficitCheckBox = findViewById(R.id.calorie_deficit_checkbox);
         boolean hasCalorieDeficit = calorieDeficitCheckBox.isChecked();
 
-        CheckBox bodyWrapsCheckBox = findViewById(R.id.body_wraps_checkbox);
         boolean hasBodyWraps = bodyWrapsCheckBox.isChecked();
 
-        CheckBox exerciseCheckBox = findViewById(R.id.exercise_checkbox);
         boolean hasExcercise = exerciseCheckBox.isChecked();
 
-        CheckBox restCheckBox = findViewById(R.id.rest_checkbox);
         boolean hasRest = restCheckBox.isChecked();
 
-        CheckBox gatoradeCheckBox = findViewById(R.id.gatorade_checkbox);
         boolean hasGatorade = gatoradeCheckBox.isChecked();
 
-        CheckBox sugarCheckBox = findViewById(R.id.sugar_checkbox);
         boolean hasSugar = sugarCheckBox.isChecked();
 
-        CheckBox proteinCheckBox = findViewById(R.id.protein_checkbox);
         boolean hasProtein = proteinCheckBox.isChecked();
 
         int checkBoxScore = calculateCheckBoxPoints(hasFadDiets, hasCalorieDeficit, hasBodyWraps, hasExcercise, hasRest, hasGatorade, hasSugar, hasProtein);
 
-        EditText answerField5 = findViewById(R.id.ques_5_answer);
         String answer5Text = answerField5.getText().toString();
         int question5Score = checkQuestion5(answer5Text);
 
-        EditText answerField6 = findViewById(R.id.ques_6_answer);
         String answer6Text = answerField6.getText().toString();
         int question6Score = checkQuestion6(answer6Text);
 
-
         score = question1Score + question2Score + checkBoxScore + question5Score + question6Score;
+
 
         Toast.makeText(this, "Hello, " + nameText + "\nYou scored " + score + " out of 8 points!", Toast.LENGTH_LONG).show();
     }
@@ -84,7 +102,6 @@ public class MainActivity extends AppCompatActivity {
         int question1Point = 0;
         int answer = R.id.ldl_false;
 
-        RadioGroup ldlRadioGroup = findViewById(R.id.ldl_radiogroup);
         int selected = ldlRadioGroup.getCheckedRadioButtonId();
         if (selected == answer) {
             question1Point += 1;
@@ -105,7 +122,6 @@ public class MainActivity extends AppCompatActivity {
         int question2Point = 0;
         int answer = R.id.hdl_true;
 
-        RadioGroup hdlRadioGroup = findViewById(R.id.hdl_radiogroup);
         int selected = hdlRadioGroup.getCheckedRadioButtonId();
         if (selected == answer) {
             question2Point += 1;
