@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText answerField5;
     private EditText answerField6;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         answerField5 = findViewById(R.id.ques_5_answer);
         answerField6 = findViewById(R.id.ques_6_answer);
     }
-
 
     /**
      * This method is called when the SUBMIT button is clicked.
@@ -85,7 +83,6 @@ public class MainActivity extends AppCompatActivity {
         int question6Score = checkQuestion6(answer6Text);
 
         score = question1Score + question2Score + checkBoxScore + question5Score + question6Score;
-
 
         Toast.makeText(this, "Hello, " + nameText + "\nYou scored " + score + " out of 8 points!", Toast.LENGTH_LONG).show();
     }
